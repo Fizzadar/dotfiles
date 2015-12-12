@@ -1,0 +1,6 @@
+# OSX fail
+.DS_Store
+
+# Python fail
+*.pyc
+
