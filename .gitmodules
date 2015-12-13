@@ -1,0 +1,6 @@
+[submodule "venv"]
+	path = venv
+	url = git@github.com:Fizzadar/venv.git
+[submodule "proj"]
+	path = proj
+	url = git@github.com:Fizzadar/proj.git

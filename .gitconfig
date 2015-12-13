@@ -1,0 +1,8 @@
+[core]
+    excludesfile = ~/.gitignore
+
+    # Safe OSX rebasing: http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/
+    trustctime = false
+
+[push]
+	default = simple

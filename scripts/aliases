@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# Quicker
+alias playbook='ansible-playbook'
+
+# Flush OSX DNS cache
+alias flushdns='sudo discoveryutil udnsflushcaches'
+
+# Server the current directory on localhost:8000
+alias simpleserve='python -m SimpleHTTPServer'
+
+# mtr/htop better w/ sudo on OSX
+alias mtr='sudo mtr'
+alias htop='sudo htop'
+
+# List all files colorized in long format
+alias l="ls -lhaF -G"
+
+# Always use color output for `ls`
+alias ls="command ls -G"
+
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
