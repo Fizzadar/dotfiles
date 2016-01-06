@@ -82,6 +82,11 @@ __powerline() {
     }
 
     ps1() {
+        # Check user.email is set when in a git repo - latest git appears to happily parse (none) as email
+        if [ `git symbolic-ref --short HEAD 2>/dev/null` ] && [ "`git config user.email`" = "" ]; then
+            echo "Warning: no git user.email config set!"
+        fi
+
     DIR=$(basename "$(dirname "$(pwd)")")
     echo -ne "\033]0;$DIR/`basename $PWD`\007"
 
