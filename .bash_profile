@@ -22,6 +22,7 @@ source ~/.dotfiles/scripts/aliases
 source ~/.dotfiles/scripts/exports
 source ~/.dotfiles/scripts/powerline
 source ~/.dotfiles/scripts/osx
+source ~/.dotfiles/scripts/dotupdate
 
 
 # Bash completion scripts!
