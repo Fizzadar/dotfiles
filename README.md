@@ -11,7 +11,7 @@ curl -sfS https://raw.githubusercontent.com/Fizzadar/dotfiles/develop/bootstrap.
 
 # Secure
 # get contents of bootstrap.sh and paste into terminal
-``
+```
 
 ## Update
 
