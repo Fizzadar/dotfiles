@@ -4,8 +4,9 @@
 # File: bootstrap.sh
 # Desc: bootstrap the .dotfiles
 
+
 dotupdate() {
-    echo "### Bootstrapping Fizzadar's .dotfiles..."
+    echo "### Updating Fizzadar's .dotfiles..."
     echo
 
     # Check ~/.dotfiles directory exists
@@ -14,6 +15,13 @@ dotupdate() {
         exit 1
     fi
 
+    # Get current directory, jump to .dotfiles
+    local old_dir=`pwd`
+    cd "${HOME}/.dotfiles"
+    # Pull git updates, jump back
+    git pull
+    cd "${old_dir}"
+
     # Loop through all dotfiles in ~/.dotfiles
     for file in ` \
         find ~/.dotfiles/.* \
@@ -21,7 +29,7 @@ dotupdate() {
         | grep -v .DS_Store \
         | grep -v .gitmodules \
     `; do
-        filename=`basename ${file}`
+        local filename=`basename ${file}`
 
         if [ -h "${HOME}/${filename}" ]; then
             echo "--> ${filename} already symlinked"
@@ -35,10 +43,5 @@ dotupdate() {
     echo "--> Sourcing ~/.bash_profile"
     source ~/.bash_profile
 
-    echo "<-- Bootstrap complete!"
+    echo "<-- Update complete!"
 }
-
-# Enable bootstrapping with this file
-if [ "$1" = "--bootstrap" ]; then
-    dotupdate
-fi
