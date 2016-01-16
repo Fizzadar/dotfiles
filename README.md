@@ -6,11 +6,11 @@ Fizzadar `.dotfiles`. Designed for use on OSX with `brew` installed.
 ## Install
 
 ```
-# Download
-git clone git@github.com:Fizzadar/dotfiles.git ~/.dotfiles
+# Risky
+curl -sfS https://raw.githubusercontent.com/Fizzadar/dotfiles/develop/bootstrap.sh | bash
 
-# Bootstrap install
-~/.dotfiles/scripts/dotupdate --bootstrap
+# Secure
+# get contents of bootstrap.sh and paste into terminal
 ``
 
 ## Update
