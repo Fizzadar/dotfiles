@@ -76,9 +76,14 @@ __powerline() {
         printf " $GIT_BRANCH_SYMBOL$branch$marks "
     }
 
-    __virtualenv() {
+    __venv() {
         [ -z "$VIRTUAL_ENV" ] && return
         printf " `basename \"$VIRTUAL_ENV\"` "
+    }
+
+    __nave() {
+        [ -z "$NAVENAME" ] && return
+        printf " $NAVENAME "
     }
 
     ps1() {
@@ -87,8 +92,8 @@ __powerline() {
             echo "$(tput bold)$(tput setaf 1)Warning: no git user.email config set!$(tput sgr0)"
         fi
 
-    DIR=$(basename "$(dirname "$(pwd)")")
-    echo -ne "\033]0;$DIR/`basename $PWD`\007"
+        DIR=$(basename "$(dirname "$(pwd)")")
+        echo -ne "\033]0;$DIR/`basename $PWD`\007"
 
         # Check the exit code of the previous command and display different
         # colors in the prompt accordingly.
@@ -99,7 +104,8 @@ __powerline() {
         fi
 
         PS1="$BG_BASE1$FG_BASE3 \w $RESET"
-        PS1+="$BG_CYAN$FG_BASE3$(__virtualenv)$RESET"
+        PS1+="$BG_CYAN$FG_BASE3$(__venv)$RESET"
+        PS1+="$BG_ORANGE$FG_BASE3$(__nave)$RESET"
         PS1+="$BG_BLUE$FG_BASE3$(__git_info)$RESET "
     }
 
