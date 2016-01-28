@@ -7,3 +7,10 @@
 # Vagrant stuff
 .vagrant/
 .bundle/
+
+# Coveralls
+.coverage
+
+# Own stuff
+.proj
+.venv
