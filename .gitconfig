@@ -4,6 +4,9 @@
     # Safe OSX rebasing: http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/
     trustctime = false
 
+    # Diff-so-fancy: https://github.com/stevemao/diff-so-fancy
+    pager = diff-highlight | diff-so-fancy | less --tabs=1,5 -R
+
 [push]
 	default = simple
 [user]
