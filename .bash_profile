@@ -24,6 +24,9 @@ source ~/.dotfiles/scripts/powerline
 source ~/.dotfiles/scripts/osx
 source ~/.dotfiles/scripts/dotupdate
 
+# .dotfiles checks
+source ~/.dotfiles/scripts/checks
+
 
 # Bash completion scripts!
 bashdir="$(brew --prefix)/etc/bash_completion.d"
