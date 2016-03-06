@@ -5,3 +5,6 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 # Display full POSIX path as Finder window title
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+
+# Disable shadow around window screenshots
+defaults write com.apple.screencapture disable-shadow -bool true
