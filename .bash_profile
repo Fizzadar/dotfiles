@@ -12,9 +12,10 @@ shopt -s nocaseglob;
 shopt -s histappend;
 
 
-# venv/proj git projects
+# git submodule projects
 source ~/.dotfiles/venv/venv
 source ~/.dotfiles/proj/proj
+source ~/.dotfiles/bash-sensible/sensible.bash
 
 
 # Other .dotfiles scripts

@@ -4,3 +4,6 @@
 [submodule "proj"]
 	path = proj
 	url = git@github.com:Fizzadar/proj.git
+[submodule "bash-sensible"]
+	path = bash-sensible
+	url = git@github.com:mrzool/bash-sensible.git
