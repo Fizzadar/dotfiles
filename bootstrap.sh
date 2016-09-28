@@ -25,5 +25,5 @@ cd "${HOME}/.dotfiles" && git submodule init
 cd "${HOME}/.dotfiles" && git submodule update
 
 # Update/install it
-source "${HOME}/.dotfiles/dotupdate" 
+source "${HOME}/.dotfiles/scripts/dotupdate" 
 dotupdate
