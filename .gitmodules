@@ -1,9 +1,9 @@
 [submodule "venv"]
 	path = venv
-	url = git@github.com:Fizzadar/venv.git
+	url = https://github.com/Fizzadar/venv
 [submodule "proj"]
 	path = proj
-	url = git@github.com:Fizzadar/proj.git
+	url = https://github.com:Fizzadar/proj
 [submodule "bash-sensible"]
 	path = bash-sensible
-	url = git@github.com:mrzool/bash-sensible.git
+	url = https://github.com:mrzool/bash-sensible
