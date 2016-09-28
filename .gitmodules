@@ -3,7 +3,7 @@
 	url = https://github.com/Fizzadar/venv
 [submodule "proj"]
 	path = proj
-	url = https://github.com:Fizzadar/proj
+	url = https://github.com/Fizzadar/proj
 [submodule "bash-sensible"]
 	path = bash-sensible
-	url = https://github.com:mrzool/bash-sensible
+	url = https://github.com/mrzool/bash-sensible
