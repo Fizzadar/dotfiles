@@ -18,7 +18,7 @@ fi
 mkdir -p "${HOME}/.dotfiles"
 
 # Clone it
-git clone https://github.com/Fizzadar/dotfiles.git "${HOME}/.dotfiles"
+git clone https://github.com/Fizzadar/dotfiles "${HOME}/.dotfiles"
 
 # Update/install it
 dotupdate
