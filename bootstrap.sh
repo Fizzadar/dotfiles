@@ -9,17 +9,17 @@ echo
 
 
 # Check for existing dotfiles
-if [ -d "${HOME}/.dotfiles" ]; then
+if [ -d ~/.dotfiles ]; then
     echo "--> There already appears to be a ~/.dotfiles, exiting!"
     exit 1
 fi
 
 # Make the .dotfiles dir
-mkdir -p "${HOME}/.dotfiles"
+mkdir -p ~/.dotfiles
 
 # Clone it
-git clone https://github.com/Fizzadar/dotfiles "${HOME}/.dotfiles"
+git clone https://github.com/Fizzadar/dotfiles ~/.dotfiles
 
 # Update/install it
-source "${HOME}/.dotfiles/scripts/dotupdate" 
+source ~/.dotfiles/shell_scripts/dotupdate
 dotupdate
