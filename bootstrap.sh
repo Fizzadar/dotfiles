@@ -20,10 +20,6 @@ mkdir -p "${HOME}/.dotfiles"
 # Clone it
 git clone https://github.com/Fizzadar/dotfiles "${HOME}/.dotfiles"
 
-# Init/update submodules
-cd "${HOME}/.dotfiles" && git submodule init
-cd "${HOME}/.dotfiles" && git submodule update
-
 # Update/install it
 source "${HOME}/.dotfiles/scripts/dotupdate" 
 dotupdate
