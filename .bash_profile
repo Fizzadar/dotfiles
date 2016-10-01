@@ -18,15 +18,12 @@ source ~/.dotfiles/proj/proj
 source ~/.dotfiles/bash-sensible/sensible.bash
 
 
-# Other .dotfiles scripts
-source ~/.dotfiles/scripts/aliases
-source ~/.dotfiles/scripts/exports
-source ~/.dotfiles/scripts/powerline
-source ~/.dotfiles/scripts/osx
-source ~/.dotfiles/scripts/dotupdate
-
-# .dotfiles checks
-source ~/.dotfiles/scripts/checks
+# Other .dotfiles shell scripts
+source ~/.dotfiles/shell_scripts/aliases
+source ~/.dotfiles/shell_scripts/exports
+source ~/.dotfiles/shell_scripts/powerline
+source ~/.dotfiles/shell_scripts/dotupdate
+source ~/.dotfiles/shell_scripts/checks
 
 
 # Bash completion scripts!

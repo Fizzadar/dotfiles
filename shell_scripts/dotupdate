@@ -10,16 +10,23 @@ dotupdate() {
     echo
 
     # Check ~/.dotfiles directory exists
-    if [ ! -d "${HOME}/.dotfiles" ]; then
+    if [ ! -d ~/.dotfiles ]; then
         echo "--> No ~/.dotfiles located, failing!"
         exit 1
     fi
 
     # Get current directory, jump to .dotfiles
     local old_dir=`pwd`
-    cd "${HOME}/.dotfiles"
-    # Pull git updates, jump back
-    git pull
+    cd ~/.dotfiles
+
+    # Pull git updates
+    git pull > /dev/null
+
+    # Init/update submodules
+    git submodule init > /dev/null
+    git submodule update > /dev/null
+
+    # Jump back to original permission
     cd "${old_dir}"
 
     # Loop through all dotfiles in ~/.dotfiles
@@ -38,6 +45,11 @@ dotupdate() {
             ln -s $file $HOME/$filename
         fi
     done
+    echo
+
+    # Update scripts (OSX only currently)
+    echo "--> Executing update script: osx"
+    source ~/.dotfiles/update_scripts/osx
     echo
 
     echo "--> Sourcing ~/.bash_profile"
