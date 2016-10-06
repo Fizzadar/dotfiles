@@ -93,7 +93,7 @@ __powerline() {
         fi
 
         DIR=$(basename "$(dirname "$(pwd)")")
-        echo -ne "\033]0;$DIR/`basename $PWD`\007"
+        echo -ne "\033]0;$DIR/`basename "$PWD"`\007"
 
         # Check the exit code of the previous command and display different
         # colors in the prompt accordingly.
