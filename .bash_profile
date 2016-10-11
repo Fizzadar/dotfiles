@@ -27,14 +27,9 @@ source ~/.dotfiles/shell_scripts/checks
 
 
 # Bash completion scripts!
-bashdir="$(brew --prefix)/etc/bash_completion.d"
-if [ -d "${bashdir}" ]; then
-    for f in $bashdir/*; do
-        source $f
-    done
-    unset f
+if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
+    source $(brew --prefix)/etc/bash_completion
 fi
-unset bashdir
 
 
 # Include any extras
