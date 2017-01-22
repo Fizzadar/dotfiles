@@ -21,6 +21,3 @@ alias ls="command ls --color=auto"
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
-
-# Shortcut to open following dir in Sublime Text
-alias sub='subl .'
