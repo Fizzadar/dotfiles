@@ -21,3 +21,6 @@ alias ls="command ls --color=auto"
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
+
+# Shortcut to remove .pyc files
+alias pyclean='find . -name \*.pyc -delete'
