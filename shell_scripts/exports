@@ -13,3 +13,6 @@ export LC_ALL='en_US.UTF-8'
 
 # Nano > vim!
 export EDITOR=nano
+
+# Make .vagrant directories machine-specific
+export VAGRANT_DOTFILE_PATH=".vagrant-`hostname`"
