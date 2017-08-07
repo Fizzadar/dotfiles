@@ -5,7 +5,7 @@
     trustctime = false
 
     # Diff-so-fancy: https://github.com/stevemao/diff-so-fancy
-    pager = diff-highlight | diff-so-fancy | less --tabs=1,5 -R
+    pager = diff-so-fancy | less --tabs=1,5 -R
 
 [push]
 	default = simple
