@@ -7,3 +7,6 @@
 [submodule "bash-sensible"]
 	path = bash-sensible
 	url = https://github.com/mrzool/bash-sensible
+[submodule "pvagrant"]
+	path = pvagrant
+	url = https://github.com/Fizzadar/pvagrant
