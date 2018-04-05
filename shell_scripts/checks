@@ -6,3 +6,9 @@ if [ ! `which diff-so-fancy` ]; then
     echo "$(tput bold)$(tput setaf 1)diff-so-fancy missing!"
     echo "Run 'npm install -g diff-so-fancy' or git diff will fail!$(tput sgr0)"
 fi
+
+
+if [ ! `which pyenv` ]; then
+    echo "$(tput bold)$(tput setaf 1)pyenv missing!"
+    echo "Run 'brew install pyenv pyenv-virtualenv' to use install/manage Python versions!$(tput sgr0)"
+fi
