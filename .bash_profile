@@ -13,8 +13,6 @@ shopt -s histappend;
 
 
 # git submodule projects
-source ~/.dotfiles/venv/venv
-source ~/.dotfiles/proj/proj
 source ~/.dotfiles/pvagrant/pvagrant
 source ~/.dotfiles/bash-sensible/sensible.bash
 
