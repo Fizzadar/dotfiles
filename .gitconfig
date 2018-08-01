@@ -11,3 +11,6 @@
 	default = simple
 [user]
 	name = Nick Barrett
+
+[remote "origin"]
+	prune = true
