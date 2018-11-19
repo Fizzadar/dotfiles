@@ -27,3 +27,6 @@ alias sudo='sudo '
 
 # Shortcut to remove .pyc files
 alias pyclean='find . -name \*.pyc -delete'
+
+# Shortcut to make a virtualenv with the same name as the cwd
+alias mkvenv='pyenv virtualenv `basename $PWD`'
