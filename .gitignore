@@ -14,3 +14,10 @@
 # Own stuff
 .proj
 .venv
+
+.kubetools/
+kubetools-compose.yml  # old
+
+# pyenv
+.python-version
+
