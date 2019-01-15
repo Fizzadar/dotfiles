@@ -9,8 +9,15 @@
 
 [push]
 	default = simple
+
 [user]
 	name = Nick Barrett
 
 [remote "origin"]
 	prune = true
+
+[commit]
+	gpgsign = true
+
+[tag]
+	forceSignAnnotated = true
