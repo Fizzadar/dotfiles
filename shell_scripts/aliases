@@ -10,7 +10,7 @@ alias flushdns='sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
 alias reindex='sudo mdutil -E /'
 
 # Server the current directory on localhost:8000
-alias simpleserve='python -m SimpleHTTPServer'
+alias simpleserve='python -m http.server'
 
 # mtr/htop better w/ sudo on OSX
 alias mtr='sudo mtr'
