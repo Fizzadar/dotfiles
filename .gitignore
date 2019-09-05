@@ -21,3 +21,5 @@ kubetools-compose.yml  # old
 # pyenv
 .python-version
 
+pyinfra-debug.log
+
