@@ -15,4 +15,6 @@ export LC_ALL='en_US.UTF-8'
 export EDITOR=nano
 
 # Make .vagrant directories machine-specific
-export VAGRANT_DOTFILE_PATH=".vagrant-`hostname`"
+# NOTE: sed is because MacOS is *extremely* prone to randomly putting or
+# removing .local at the end of the machine hostname at random on login
+export VAGRANT_DOTFILE_PATH=".vagrant-`hostname | sed s/\.local//`"
