@@ -81,9 +81,9 @@ __powerline() {
         printf " `basename \"$VIRTUAL_ENV\"` "
     }
 
-    __nave() {
-        [ -z "$NAVENAME" ] && return
-        printf " $NAVENAME "
+    __nvenv() {
+        [ -z "$NODE_VIRTUAL_ENV" ] && return
+        printf " $NODE_VIRTUAL_ENV "
     }
 
     ps1() {
@@ -111,7 +111,7 @@ __powerline() {
 
         PS1="$BG_BASE1$FG_BASE3 \w $RESET"
         PS1+="$BG_CYAN$FG_BASE3$(__venv)$RESET"
-        PS1+="$BG_ORANGE$FG_BASE3$(__nave)$RESET"
+        PS1+="$BG_ORANGE$FG_BASE3$(__nvenv)$RESET"
         PS1+="$BG_BLUE$FG_BASE3$(__git_info)$RESET "
     }
 
