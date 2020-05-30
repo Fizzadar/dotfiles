@@ -15,6 +15,7 @@ shopt -s histappend;
 # git submodule projects
 source ~/.dotfiles/pvagrant/pvagrant
 source ~/.dotfiles/bash-sensible/sensible.bash
+source ~/.dotfiles/nmenv/nmenv
 
 
 # Other .dotfiles shell scripts
