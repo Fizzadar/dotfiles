@@ -53,6 +53,14 @@ __powerline() {
     RESET="\[$(tput sgr0)\]"
     BOLD="\[$(tput bold)\]"
 
+    if [[ -z "$PS_SYMBOL" ]]; then
+      case "$(uname)" in
+          Darwin)   PS_SYMBOL=$PS_SYMBOL_DARWIN;;
+          Linux)    PS_SYMBOL=$PS_SYMBOL_LINUX;;
+          *)        PS_SYMBOL=$PS_SYMBOL_OTHER;;
+      esac
+    fi
+
     __git_info() {
         [ -x "$(which git)" ] || return    # git not found
 
@@ -76,17 +84,48 @@ __powerline() {
         printf " $GIT_BRANCH_SYMBOL$branch$marks "
     }
 
-    __venv() {
-        [ -z "$VIRTUAL_ENV" ] && return
-        printf " `basename \"$VIRTUAL_ENV\"` "
+    __python_info() {
+        local python_version='system'
+        local virtual_env
+
+        if [ -x "$(which pyenv)" ]; then
+            python_version=`pyenv version-name`
+        fi
+
+        if [ -n "$VIRTUAL_ENV" ]; then
+            virtual_env=`basename $VIRTUAL_ENV`
+            if [ ! "$virtual_env" = "$python_version" ]; then
+                python_version="$python_version (venv:${virtual_env})"
+            fi
+        fi
+
+        printf " py:$python_version "
     }
 
-    __nvenv() {
-        [ -z "$NODE_VIRTUAL_ENV" ] && return
-        printf " $NODE_VIRTUAL_ENV "
+    __js_info() {
+        local node_version
+
+        if [ -x "$(which nodenv)" ]; then
+            node_version=`nodenv version-name`
+        fi
+
+        if [ -n "$NODE_MODULES_VIRTUAL_ENV" ]; then
+            node_version="$node_version (nm:$NODE_MODULES_VIRTUAL_ENV)"
+        fi
+
+        [ -x "$(which nodenv)" ] || return
+        printf " js:$node_version "
     }
 
     ps1() {
+        # Check the exit code of the previous command and display different
+        # colors in the prompt accordingly.
+        if [ $? -eq 0 ]; then
+            local FG_EXIT="$BG_GREEN"
+        else
+            local FG_EXIT="$BG_RED"
+        fi
+
         # Check user.email is set when in a git repo - latest git appears to happily parse (none) as email
         if [ `git symbolic-ref --short HEAD 2>/dev/null` ]; then
             if [ "`git config user.email`" = "" ]; then
@@ -101,18 +140,13 @@ __powerline() {
         DIR=$(basename "$(dirname "$(pwd)")")
         echo -ne "\033]0;$DIR/`basename "$PWD"`\007"
 
-        # Check the exit code of the previous command and display different
-        # colors in the prompt accordingly.
-        if [ $? -eq 0 ]; then
-            local BG_EXIT="$BG_GREEN"
-        else
-            local BG_EXIT="$BG_RED"
-        fi
-
         PS1="$BG_BASE1$FG_BASE3 \w $RESET"
-        PS1+="$BG_CYAN$FG_BASE3$(__venv)$RESET"
-        PS1+="$BG_ORANGE$FG_BASE3$(__nvenv)$RESET"
-        PS1+="$BG_BLUE$FG_BASE3$(__git_info)$RESET "
+
+        PS1+="$BG_CYAN$FG_BASE3$(__python_info)$RESET"
+        PS1+="$BG_ORANGE$FG_BASE3$(__js_info)$RESET"
+        PS1+="$BG_BLUE$FG_BASE3$(__git_info)$RESET"
+
+        PS1+="$FG_EXIT $FG_BASE3$PS_SYMBOL $RESET "
     }
 
     PROMPT_COMMAND=ps1
