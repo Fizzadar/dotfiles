@@ -5,6 +5,7 @@
 [submodule "pvagrant"]
 	path = pvagrant
 	url = https://github.com/Fizzadar/pvagrant
+	
 [submodule "nmenv"]
 	path = nmenv
-	url = git@github.com:Fizzadar/nmenv.git
+	url = https://github.com/Fizzadar/nmenv.git
