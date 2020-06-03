@@ -27,8 +27,10 @@ source ~/.dotfiles/shell_scripts/checks
 
 
 # Bash completion scripts!
-if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
-    source $(brew --prefix)/etc/bash_completion
+if [ `uname -s` = "Darwin" ]; then
+	if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
+	    source $(brew --prefix)/etc/bash_completion
+	fi
 fi
 
 

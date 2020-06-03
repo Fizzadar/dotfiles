@@ -2,7 +2,10 @@
 
 # Setup path
 PATH=/opt/bin:/opt/sbin:/usr/local/sbin:$PATH
-export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
+if [ `uname -s` = "Darwin" ]; then
+	PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
+fi
+export PATH
 
 # Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
 export PYTHONIOENCODING='UTF-8'
