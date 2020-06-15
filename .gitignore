@@ -23,3 +23,5 @@ kubetools-compose.yml  # old
 
 pyinfra-debug.log
 
+fizzenv.sh
+
