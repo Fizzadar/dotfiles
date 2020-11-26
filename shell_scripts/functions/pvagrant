@@ -1,0 +1,44 @@
+#!/bin/sh
+# pvagrant
+# Quick hack: execute Vagrant commands in parallel
+# Desc: lists, creates and deletes virtualenvs in a specified directory
+#
+# Install:
+#       write this file as ~/.pvagrant
+#       mkdir -p ~/.pvagrants
+#       add to ~/.bash_profile: source ~/.pvagrant
+
+# Config
+VERSION="1.0"
+VAGRANT=`which vagrant`
+
+
+_get_vagrant_vms() {
+    for vm in `vagrant status --machine-readable | cut -d ',' -f 2 | sort | uniq`; do
+        echo $vm
+    done
+}
+
+
+# The venv
+pvagrant() {
+    # Help (or blank)
+    if [ "$1" = "--help" ]
+    then
+        vagrant --help
+        return 0
+    fi
+
+    local args=${@}
+
+    for vm in `_get_vagrant_vms`; do
+        local cmd="$VAGRANT $args $vm"
+        echo "--> Executing: $cmd"
+        $cmd &
+        sleep 2
+    done
+
+    wait
+
+    echo "<-- All vagrant commands completed"
+}

@@ -1,10 +1,5 @@
 #!/bin/sh
 
-# Fizzadar's .dotfiles
-# File: bootstrap.sh
-# Desc: bootstrap the .dotfiles
-
-
 dotupdate() {
     echo "### Updating Fizzadar's .dotfiles..."
     echo
@@ -47,12 +42,9 @@ dotupdate() {
     done
     echo
 
-    # Update scripts (OSX only currently)
-    if [ `uname -s` = "Darwin" ]; then
-        echo "--> Executing update script: osx"
-        source ~/.dotfiles/update_scripts/osx
-        echo
-    fi
+    echo "--> Sourcing update scripts"
+    source ~/.dotfiles/update_scripts/checks
+    source ~/.dotfiles/update_scripts/osx
 
     echo "--> Sourcing ~/.bash_profile"
     source ~/.bash_profile

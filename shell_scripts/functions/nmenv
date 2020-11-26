@@ -1,0 +1,35 @@
+#!/bin/sh
+
+# nmvenv
+# Quick hack to redirect `node_modules` location outside of cwd
+
+nmenv() {
+    local dir=$1
+
+    nmenv-deactivate() {
+        export NODE_PATH=$_OLD_NODE_PATH
+        export PATH=$_OLD_PATH
+
+        unset _OLD_PATH
+        unset _OLD_NODE_PATH
+        unset NODE_MODULES_VIRTUAL_ENV
+
+        unalias yarn
+        unalias npm
+
+        unset -f nm-deactivate  # self destruct
+    }
+
+    alias yarn="yarn --modules-folder $dir"
+    alias npm="npm --prefix $dir"
+
+    _OLD_NODE_PATH=$NODE_PATH
+    export NODE_PATH=$dir
+
+    _OLD_PATH=$PATH
+    export PATH=$dir/.bin:$PATH
+
+    export NODE_MODULES_VIRTUAL_ENV=`basename $dir`
+
+    export PS1="($NODE_MODULES_VIRTUAL_ENV)"$PS1
+}
