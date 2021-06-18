@@ -16,17 +16,5 @@ alias simpleserve='python -m http.server'
 alias mtr='sudo mtr'
 alias htop='sudo htop'
 
-# List all files colorized in long format
-alias l="ls -lhaF -G --color=auto"
-
-# Always use color output for `ls`
-alias ls="command ls --color=auto"
-
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
-
-# Shortcut to remove .pyc files
-alias pyclean='find . -name \*.pyc -delete'
-
-# Shortcut to make a virtualenv with the same name as the cwd
-alias mkvenv='pyenv virtualenv `basename $PWD`'
