@@ -11,6 +11,7 @@ source ~/.dotfiles/shell_scripts/powerline
 source ~/.dotfiles/shell_scripts/functions/dotupdate
 source ~/.dotfiles/shell_scripts/functions/nmenv
 source ~/.dotfiles/shell_scripts/functions/pvagrant
+source ~/.dotfiles/shell_scripts/functions/fizzenv
 
 # Bash completion scripts!
 if [ `uname -s` = "Darwin" ]; then
