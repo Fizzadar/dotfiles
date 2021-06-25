@@ -4,7 +4,15 @@
 # Quick hack to redirect `node_modules` location outside of cwd
 
 nmenv() {
-    local dir=$1
+    local name=$1
+
+    local nmenvsDir=${NMENVS_DIR:-~/.nmenvs}
+    local nodeModulesDir=$nmenvsDir/$name/node_modules/
+
+    if [ ! -d $nodeModulesDir ]; then
+        echo "Creating $nodeModulesDir..."
+        mkdir -p $nodeModulesDir
+    fi
 
     nmenv-deactivate() {
         export NODE_PATH=$_OLD_NODE_PATH
@@ -20,16 +28,18 @@ nmenv() {
         unset -f nm-deactivate  # self destruct
     }
 
-    alias yarn="yarn --modules-folder $dir"
-    alias npm="npm --prefix $dir"
+    alias yarn="yarn --modules-folder $nodeModulesDir"
+    alias npm="npm --prefix $nodeModulesDir"
+
 
     _OLD_NODE_PATH=$NODE_PATH
-    export NODE_PATH=$dir
+    export NODE_PATH=$nodeModulesDir
 
     _OLD_PATH=$PATH
-    export PATH=$dir/.bin:$PATH
+    export PATH=$nodeModulesDir/.bin:$PATH
 
-    export NODE_MODULES_VIRTUAL_ENV=`basename $dir`
-
+    export NODE_MODULES_VIRTUAL_ENV=$name
     export PS1="($NODE_MODULES_VIRTUAL_ENV)"$PS1
+
+    echo "nmenv: Using ``node_modules`` dir: ${nodeModulesDir}"
 }
