@@ -31,7 +31,7 @@ function _fizzenv_prompt() {
         fi
     # No longer in a subdirectory of our original fizzenv.sh file
     # See: https://unix.stackexchange.com/questions/6435
-    elif [ "${PWD##$FIZZENV}" = $PWD ]; then
+    elif [ "${PWD##$FIZZENV}" = "${PWD}" ]; then
         echo "# fizzenv: deactivating! ${FIZZENV}"
         fizzenv_deactivate
         unset fizzenv_deactivate
