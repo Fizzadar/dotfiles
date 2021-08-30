@@ -20,6 +20,9 @@ if [ `uname -s` = "Darwin" ]; then
     # Show hidden files
     defaults write com.apple.finder AppleShowAllFiles -bool true
 
+    # Disable font smoothing
+    defaults -currentHost write -g AppleFontSmoothing -int 0
+
     # Kill/relaunch finder & system UI to make above take effect
     killall Finder
     killall SystemUIServer
