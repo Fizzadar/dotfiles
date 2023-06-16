@@ -137,8 +137,9 @@ __powerline() {
             fi
         fi
 
+        PARENTDIR=$(basename "$(dirname "$(realpath ..)")")
         DIR=$(basename "$(dirname "$(pwd)")")
-        echo -ne "\033]0;$DIR/`basename "$PWD"`\007"
+        echo -ne "\033]0;$PARENTDIR/$DIR/`basename "$PWD"`\007"
 
         PS1="$BG_BASE1$FG_BASE3 \w $RESET"
 

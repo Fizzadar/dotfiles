@@ -3,6 +3,7 @@
 
     # Safe OSX rebasing: http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/
     trustctime = false
+	editor = nano
 
 [push]
 	default = simple
@@ -11,7 +12,7 @@
 	ff = only
 
 [user]
-	name = Nick Barrett
+	name = Nick Mills-Barrett
 
 [remote "origin"]
 	prune = true
@@ -30,3 +31,11 @@
 
 [init]
 	defaultBranch = main
+[status]
+	submoduleSummary = true
+[diff]
+	submodule = log
+[submodule]
+	fetchJobs = 10
+[blame]
+	ignoreRevsFile = .git-blame-ignore-revs

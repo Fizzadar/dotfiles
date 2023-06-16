@@ -1,7 +1,7 @@
 #!/bin/sh
 
 
-if [ `uname -s` = "Darwin" ]; then
+if [ $(uname -s) = "Darwin" ]; then
     # Disable the warning when changing a file extension
     defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 

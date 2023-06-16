@@ -4,17 +4,14 @@
 source ~/.dotfiles/bash-sensible/sensible.bash
 
 # Other .dotfiles shell scripts
-source ~/.dotfiles/shell_scripts/aliases
-source ~/.dotfiles/shell_scripts/exports
-source ~/.dotfiles/shell_scripts/powerline
-
-source ~/.dotfiles/shell_scripts/functions/dotupdate
-source ~/.dotfiles/shell_scripts/functions/nmenv
-source ~/.dotfiles/shell_scripts/functions/pvagrant
-source ~/.dotfiles/shell_scripts/functions/fizzenv
+source ~/.dotfiles/shell_scripts/aliases.sh
+source ~/.dotfiles/shell_scripts/exports.sh
+source ~/.dotfiles/shell_scripts/powerline.sh
+source ~/.dotfiles/shell_scripts/dotupdate.sh
+source ~/.dotfiles/shell_scripts/wezterm.sh
 
 # Bash completion scripts!
-if [ `uname -s` = "Darwin" ]; then
+if [ $(uname -s) = "Darwin" ]; then
 	if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
 	    source $(brew --prefix)/etc/bash_completion
 	fi
