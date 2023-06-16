@@ -10,6 +10,7 @@
 
 [pull]
 	ff = only
+	rebase = true
 
 [user]
 	name = Nick Mills-Barrett
@@ -39,3 +40,5 @@
 	fetchJobs = 10
 [blame]
 	ignoreRevsFile = .git-blame-ignore-revs
+[rebase]
+	autostash = true
